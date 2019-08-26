@@ -74,8 +74,10 @@ $(document).ready(function() {
 
     $("#stopScheinchenbtn").click(function() {
         $("button[id^='startScheinchenbtn']").each(function(){
-            $(this).removeAttr("disabled");
-        });
+            // $(this).removeAttr("disabled");
+		});
+		
+		///
         wsSend("stopSchweinchen", "");
     });
 
@@ -335,13 +337,15 @@ function stopTimer() {
 }
 
 function startSchweinchen() {
-	// TODO: Hook for disabling button
 	if (runde == 2){
-        $("#schweinchen2Img").show("blind", { direction: "left" }, 1500);
+		$("#schweinchen2Img").show("blind", { direction: "left" }, 1500);
+		$("#startScheinchenbtn2").attr("disabled", "disabled");
 	} else if (runde == 3){
-        $("#schweinchen3Img").show("blind", { direction: "left" }, 1500);
+		$("#schweinchen3Img").show("blind", { direction: "left" }, 1500);
+		$("#startScheinchenbtn3").attr("disabled", "disabled");
 	} else {
 		$("#schweinchen1Img").show("blind", { direction: "left" }, 1500);
+		$("#startScheinchenbtn").attr("disabled", "disabled");
 	}
 
 	$("#answers").hide();
