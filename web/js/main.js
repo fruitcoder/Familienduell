@@ -132,7 +132,7 @@ $(document).ready(function() {
 			}
 		} 
 
-		if (index < 8) {
+		if (index < 9) {
 			setFrageIndex(index);	
 		}
 	});
@@ -291,7 +291,7 @@ function showTimer() {
 		if (player2) {
 			$("#timer").text("25");
 		} else {
-			$("#timer").text("20");
+			$("#timer").text("25");
 		}
 		$("#timer").fadeIn();
 	}
@@ -300,7 +300,7 @@ function showTimer() {
 function startTimer() {
 	if (display) {
 		var timer = parseInt($("#timer").text());
-		if ((timer == 20 && !player2) || (player2 && timer == 25)) {
+		if ((timer == 25 && !player2) || (player2 && timer == 25)) {
 			if (sounds && (display || serverSound)) {
 				// window.document.timerTick = new Audio('./sounds/tick.ogg');
 				// window.document.timerTick.volume = answerFailVolume;
@@ -335,6 +335,7 @@ function stopTimer() {
 }
 
 function startSchweinchen() {
+	// TODO: Hook for disabling button
 	if (runde == 2){
         $("#schweinchen2Img").show("blind", { direction: "left" }, 1500);
 	} else if (runde == 3){
@@ -441,7 +442,7 @@ function loadQuestionToGui(index) {
 		}
 		var anzahlFragen = fragen[index]["antworten"].length;
 		if (isFinalMode) {
-			anzahlFragen = 5;
+			anzahlFragen = 6;
 		}
 		for (var i = 0; i < anzahlFragen; i++) {
 			if(isFinalMode || fragen[index]["antworten"][i]["antwort"] != "") {
