@@ -163,8 +163,12 @@ var connectWs = function() {
 				intro.volume = introVolume;
 		} else if(key == "setLeftPoints") {
 			setLeftPoints(value);
+			currentRoundPointsResolved = true;
+			console.log('########### resolved true');
 		} else if(key == "setRightPoints") {
 			setRightPoints(value);
+			currentRoundPointsResolved = true;
+			console.log('########### resolved false');
 		} else if(key == "setSumRes") {
 			setSumRes(value);	
 		} else if(key == "startAnswerFail") {
@@ -207,7 +211,10 @@ var connectWs = function() {
         else if (key == "setRunde"){
             console.log('Set Runde to ' + value);
             setRunde(value);
-        }
+        } else if (key == "resetPointsResolvedFlag") {
+			currentRoundPointsResolved = false;
+			console.log('########### resolved false');
+		}
 	}
 }
 

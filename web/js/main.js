@@ -247,7 +247,7 @@ function showQuestionsAsPrint() {
 function setLeftPoints(newPoints) {
 	$(".pointsLeft").text(newPoints);
 	$("#mPunkteLeft").val(newPoints);
-	$("#sumRes").text("0");
+	$("#SumRes").text("0");
 	$("#pointsCenter").text("0");
 	if(sounds && (display || serverSound)) {
 		audio = new Audio('./sounds/zahlRichtig.ogg');
@@ -258,7 +258,7 @@ function setLeftPoints(newPoints) {
 function setRightPoints(newPoints) {
 	$(".pointsRight").text(newPoints);
 	$("#mPunkteRight").val(newPoints);
-	$("#sumRes").text("0");
+	$("#SumRes").text("0");
 	$("#pointsCenter").text("0");
 	if(sounds && (display || serverSound)) {
 		audio = new Audio('./sounds/zahlRichtig.ogg');
@@ -553,7 +553,10 @@ function setAnz(index, nr) {
 			audio = new Audio('./sounds/zahlRichtig.ogg');
 			audio.play();
 		}
-		recalcSum(nr);
+
+		if(isFinalMode || !currentRoundPointsResolved) {
+			recalcSum(nr);
+		}
 	}
 }
 
